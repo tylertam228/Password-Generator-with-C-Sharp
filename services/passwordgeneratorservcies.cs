@@ -18,6 +18,7 @@ public class PasswordResult
     public string Password { get; set; } = string.Empty; // The generated password
     public int Strength { get; set; } // The strength of the password
     public string StrengthLabel { get; set; } = string.Empty;
+    public string SwordTier { get; set; } = string.Empty;
 }
 
 public class PasswordGeneratorService
@@ -65,6 +66,13 @@ public class PasswordGeneratorService
                 >= 40 => "Medium",
                 >= 20 => "Weak",
                 _ => "Very Weak"
+            },
+            SwordTier = strength switch
+            {
+                >= 80 => "Legendary",
+                >= 50 => "Diamond",
+                >= 25 => "Iron",
+                _ => "Wood"
             }
         };
     }

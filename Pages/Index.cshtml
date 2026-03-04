@@ -1,10 +1,141 @@
-﻿@page
+@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Weapon Forge";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="workshop-container">
+    <div class="workshop-header">
+        <h1 class="pixel-font title-glow">&#9876; TIGER228'S WEAPON FORGE &#9876;</h1>
+        <p class="subtitle">~ Password Crafting Workshop ~</p>
+    </div>
+
+    <div class="workshop-main">
+        <div class="forge-controls">
+            <div class="materials-section rpg-frame">
+                <div class="section-header pixel-font">&#9935; Materials</div>
+                <div class="ore-grid">
+                    <button class="ore-bin active" id="oreUppercase" data-type="uppercase">
+                        <div class="ore-icon-wrap">
+                            <img src="/images/ore_emberstone.png" alt="Emberstone" class="ore-img" />
+                        </div>
+                        <div class="ore-info">
+                            <span class="ore-name">Emberstone</span>
+                            <span class="ore-chars">A &ndash; Z</span>
+                        </div>
+                        <div class="ore-check">&#10003;</div>
+                    </button>
+                    <button class="ore-bin active" id="oreLowercase" data-type="lowercase">
+                        <div class="ore-icon-wrap">
+                            <img src="/images/ore_frostweave.png" alt="Frostweave Ore" class="ore-img" />
+                        </div>
+                        <div class="ore-info">
+                            <span class="ore-name">Frostweave Ore</span>
+                            <span class="ore-chars">a &ndash; z</span>
+                        </div>
+                        <div class="ore-check">&#10003;</div>
+                    </button>
+                    <button class="ore-bin active" id="oreNumbers" data-type="numbers">
+                        <div class="ore-icon-wrap">
+                            <img src="/images/ore_veridian.png" alt="Veridian Shard" class="ore-img" />
+                        </div>
+                        <div class="ore-info">
+                            <span class="ore-name">Veridian Shard</span>
+                            <span class="ore-chars">0 &ndash; 9</span>
+                        </div>
+                        <div class="ore-check">&#10003;</div>
+                    </button>
+                    <button class="ore-bin active" id="oreSymbols" data-type="symbols">
+                        <div class="ore-icon-wrap">
+                            <img src="/images/ore_voidglimmer.png" alt="Voidglimmer" class="ore-img" />
+                        </div>
+                        <div class="ore-info">
+                            <span class="ore-name">Voidglimmer</span>
+                            <span class="ore-chars">!@@#$%</span>
+                        </div>
+                        <div class="ore-check">&#10003;</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="furnace-section rpg-frame">
+                <div class="section-header pixel-font">&#128293; Furnace Temperature</div>
+                <div class="gauge-container">
+                    <div class="gauge-display">
+                        <span class="gauge-label">Power Level</span>
+                        <span class="gauge-value pixel-font" id="lengthValue">16</span>
+                    </div>
+                    <input type="range" min="4" max="128" value="16" id="lengthSlider" class="forge-slider" />
+                    <div class="gauge-ticks">
+                        <span>4</span>
+                        <span>32</span>
+                        <span>64</span>
+                        <span>128</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exclude-section rpg-frame">
+                <div class="section-header pixel-font">&#128683; Forbidden Runes</div>
+                <div class="exclude-body">
+                    <input type="text" id="excludeChars" placeholder="Characters to banish..." class="rune-input" />
+                </div>
+            </div>
+
+            <button class="forge-btn" id="forgeBtn">
+                <span class="forge-btn-inner pixel-font">
+                    <span class="hammer-left">&#9874;</span>
+                    FORGE WEAPON
+                    <span class="hammer-right">&#9874;</span>
+                </span>
+            </button>
+        </div>
+
+        <div class="goblin-panel">
+            <div class="goblin-frame rpg-frame">
+                <img src="/images/Gobline.gif" alt="Forge Master" class="goblin-img" />
+                <div class="goblin-name pixel-font">Forge Master</div>
+            </div>
+            <div class="speech-bubble">
+                <div class="bubble-tail"></div>
+                <p id="speechText">Welcome, adventurer! Choose your ores and set the furnace. I'll forge you a password worthy of legends!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-area">
+        <div class="anvil-section rpg-frame" id="anvilSection">
+            <div class="section-header pixel-font">&#9876; Anvil of Creation</div>
+            <div class="anvil-body">
+                <div class="password-field">
+                    <div class="password-text" id="passwordDisplay">Awaiting orders, adventurer...</div>
+                    <button class="copy-btn" id="copyBtn" title="Copy to Clipboard">&#128203;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="weapon-stats rpg-frame" id="weaponStats">
+            <div class="section-header pixel-font">&#128737; Weapon Stats</div>
+            <div class="stats-body">
+                <div class="sword-showcase" id="swordShowcase">
+                    <div class="sword-visual" id="swordVisual">
+                        <img src="/images/wood_sword.webp" alt="Sword" class="sword-img" id="swordImg" />
+                    </div>
+                    <div class="sword-name-plate">
+                        <div class="sword-name pixel-font" id="swordName">No Weapon Forged</div>
+                        <div class="sword-tier-label" id="swordTierLabel"></div>
+                    </div>
+                </div>
+                <div class="strength-bar-wrap">
+                    <div class="strength-labels">
+                        <span class="str-tag">STR</span>
+                        <span class="str-value" id="strengthValue">0 / 100</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-fill" id="hpFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

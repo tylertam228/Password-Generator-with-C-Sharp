@@ -1,8 +1,54 @@
-﻿@page
+@page
 @model PrivacyModel
 @{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="privacy-page">
+    <h1>Privacy Policy</h1>
+
+    <p>Last updated: March 2026</p>
+
+    <h2>Overview</h2>
+    <p>
+        Tiger228's Weapon Forge is a password generator tool that runs entirely in your browser.
+        We are committed to protecting your privacy and ensuring a safe experience.
+    </p>
+
+    <h2>Data Collection</h2>
+    <p>This application does <strong>not</strong> collect, store, or transmit any personal data. Specifically:</p>
+    <ul>
+        <li>Passwords are generated server-side using cryptographically secure randomness and returned to your browser. They are never logged or stored.</li>
+        <li>No cookies, tracking pixels, or analytics scripts are used.</li>
+        <li>No user accounts or registration are required.</li>
+        <li>No data is shared with third parties.</li>
+    </ul>
+
+    <h2>How It Works</h2>
+    <p>
+        When you click "Forge Weapon", your selected options (character types, length, excluded characters) are sent
+        to the server, which generates a password using .NET's <code>System.Security.Cryptography</code> library.
+        The generated password is returned directly to your browser and exists only in your device's memory.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <p>
+        This site loads the following external resources for display purposes only:
+    </p>
+    <ul>
+        <li><strong>Google Fonts</strong> &mdash; "Press Start 2P" and "VT323" fonts are loaded from Google's CDN. Google's privacy policy applies to this service.</li>
+    </ul>
+
+    <h2>Security</h2>
+    <p>
+        All passwords are generated using <code>System.Security.Cryptography.RandomNumberGenerator</code>,
+        which provides cryptographically secure random number generation. The application is served over HTTPS
+        to ensure data in transit is encrypted.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+        This project is built and maintained by <strong>Tiger228</strong>.
+        If you have any questions about this privacy policy, feel free to reach out via the project's repository.
+    </p>
+</div>
