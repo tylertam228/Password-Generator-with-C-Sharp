@@ -39,8 +39,8 @@ A fantasy-themed password generator built with C# and ASP.NET Core. The UI is st
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd password.tyhstudio.com
+git clone https://github.com/tylertam228/Password-Generator-with-C-Sharp
+cd Password-Generator-with-C-Sharp
 
 # Run the application
 dotnet run
